@@ -1,1 +1,715 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Montserrat Mitjans Arnal - Investigació i Docència | UB</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        ub: {
+                            blue: '#002B49',
+                            accent: '#00539C',
+                            gold: '#D4AF37',
+                            light: '#EAF2F8',
+                            dark: '#001A2C'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #00539C;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-ub-accent selection:text-white flex flex-col min-h-screen transition-colors duration-300">
 
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Brand / Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-ub-blue text-white flex items-center justify-center font-bold text-xl shadow-md border border-blue-400/20">
+                        UB
+                    </div>
+                    <div>
+                        <a href="#" class="font-bold text-slate-900 dark:text-white text-lg leading-tight hover:text-ub-accent transition">Dra. Montserrat Mitjans</a>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Universitat de Barcelona</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-5 text-sm font-semibold">
+                    <a href="#perfil" class="text-slate-600 dark:text-slate-300 hover:text-ub-accent dark:hover:text-blue-400 px-3 py-2 rounded-lg transition hover:bg-slate-100 dark:hover:bg-slate-800">Perfil</a>
+                    <a href="#recerca" class="text-slate-600 dark:text-slate-300 hover:text-ub-accent dark:hover:text-blue-400 px-3 py-2 rounded-lg transition hover:bg-slate-100 dark:hover:bg-slate-800">Recerca</a>
+                    <a href="#publicacions" class="text-slate-600 dark:text-slate-300 hover:text-ub-accent dark:hover:text-blue-400 px-3 py-2 rounded-lg transition hover:bg-slate-100 dark:hover:bg-slate-800">Publicacions</a>
+                    <a href="#congressos" class="text-slate-600 dark:text-slate-300 hover:text-ub-accent dark:hover:text-blue-400 px-3 py-2 rounded-lg transition hover:bg-slate-100 dark:hover:bg-slate-800">Congressos & Docència</a>
+                    <a href="#guia-github" class="text-slate-600 dark:text-slate-300 hover:text-ub-accent dark:hover:text-blue-400 px-3 py-2 rounded-lg transition hover:bg-slate-100 dark:hover:bg-slate-800"><i class="fab fa-github mr-1"></i> GitHub Pages</a>
+
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="theme-toggle" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none" title="Canviar Tema">
+                        <i id="theme-icon" class="fas fa-moon text-lg"></i>
+                    </button>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden gap-2">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <i id="theme-icon-mobile" class="fas fa-moon text-lg"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-4 space-y-1">
+            <a href="#perfil" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:text-ub-accent hover:bg-slate-50 dark:hover:bg-slate-800">Perfil</a>
+            <a href="#recerca" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:text-ub-accent hover:bg-slate-50 dark:hover:bg-slate-800">Recerca</a>
+            <a href="#publicacions" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:text-ub-accent hover:bg-slate-50 dark:hover:bg-slate-800">Publicacions</a>
+            <a href="#congressos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:text-ub-accent hover:bg-slate-50 dark:hover:bg-slate-800">Congressos & Docència</a>
+            <a href="#guia-github" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-semibold text-ub-accent dark:text-blue-400 bg-ub-light dark:bg-slate-800"><i class="fab fa-github mr-2"></i>Guia GitHub Pages</a>
+        </div>
+    </header>
+
+    <!-- Profile & Hero Section -->
+    <section id="perfil" class="relative py-12 md:py-20 bg-gradient-to-b from-slate-100 via-white to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Avatar & Image Column -->
+                <div class="lg:col-span-4 flex flex-col items-center text-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-ub-accent via-blue-500 to-teal-400 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-300"></div>
+                        
+                        <!-- Primary Photo: MMA_2025.jpg with Fallbacks -->
+                        <img id="profile-img" 
+                             src="MMA_2025.jpg" 
+                             onerror="this.onerror=null; this.src='profile.jpg'; this.onerror=function(){this.src='https://loop.frontiersin.org/people/1011319';};" 
+                             alt="Dra. Montserrat Mitjans Arnal" 
+                             class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full object-cover border-4 border-white dark:border-slate-800 shadow-2xl transition duration-300 transform group-hover:scale-[1.02]">
+                        
+                        <span class="absolute bottom-2 right-2 bg-emerald-500 text-white p-2.5 rounded-full ring-4 ring-white dark:ring-slate-900 shadow-md" title="Perfil Investigador Actiu (UB)">
+                            <i class="fas fa-check text-xs"></i>
+                        </span>
+                    </div>
+
+                    <!-- Profile image label -->
+                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 font-mono">Imatge: MMA_2025.jpg</p>
+
+                    <!-- Academic Social Badges -->
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://orcid.org" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-slate-700 transition" title="ORCID ID">
+                            <i class="fab fa-orcid text-xl"></i>
+                        </a>
+                        <a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:bg-teal-50 dark:hover:bg-slate-700 transition" title="ResearchGate">
+                            <i class="fab fa-researchgate text-xl"></i>
+                        </a>
+                        <a href="https://loop.frontiersin.org/people/1011319" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:bg-sky-50 dark:hover:bg-slate-700 transition" title="Frontiers Loop Profile">
+                            <i class="fas fa-globe text-xl"></i>
+                        </a>
+                        <a href="https://www.ub.edu" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-white dark:bg-slate-800 text-ub-blue dark:text-blue-400 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition" title="Universitat de Barcelona">
+                            <i class="fas fa-university text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Main Bio Column -->
+                <div class="lg:col-span-8 space-y-5 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-ub-light dark:bg-slate-800 text-ub-accent dark:text-blue-400 font-semibold text-xs uppercase tracking-wide border border-blue-200 dark:border-slate-700">
+                        <i class="fas fa-certificate text-ub-accent dark:text-blue-400"></i> Investigadora & Professora Agregada
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Dra. Montserrat Mitjans Arnal
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
+                        Especialista en Nanomedicina, Nanotoxicologia, Formulations Farmacèutiques i Metodologies In Vitro Alternatives a l'Experimentació Animal (Principi de les 3R).
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm flex items-start gap-3">
+                            <i class="fas fa-building-columns text-ub-accent dark:text-blue-400 text-xl mt-1"></i>
+                            <div class="text-left">
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Departament & Facultat</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Departament de Bioquímica i Fisiologia · Facultat de Farmàcia i Ciències de l'Alimentació</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-sm flex items-start gap-3">
+                            <i class="fas fa-atom text-ub-accent dark:text-blue-400 text-xl mt-1"></i>
+                            <div class="text-left">
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Institut d'Investigació</h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Institut de Nanosciència i Nanotecnologia de la UB (IN²UB)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-3">
+                        <a href="#contacte" class="px-5 py-2.5 rounded-xl bg-ub-blue hover:bg-ub-accent text-white font-semibold text-sm shadow-md transition flex items-center gap-2">
+                            <i class="fas fa-envelope"></i> Contactar
+                        </a>
+                        <a href="#publicacions" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
+                            <i class="fas fa-book-open"></i> Veure Publicacions
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas Section -->
+    <section id="recerca" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-ub-accent dark:text-blue-400 font-bold text-xs uppercase tracking-wider">Àrees Especialitzades</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Línies de Recerca Principal</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Dedicació continuada a la innovació farmacèutica, sostenibilitat biomèdica i seguretat en nanomaterials.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Research Card 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-ub-accent dark:hover:border-blue-400 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-ub-accent dark:text-blue-400 flex items-center justify-center text-xl mb-4 font-bold">
+                            <i class="fas fa-vial-virus"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Nanomedicina i Nanotoxicologia</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Avaluació de la biocompatibilitat de sistemes nanoestructurats, perfils de seguretat cel·lular i citotoxicitat de nanomaterials in vitro.
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-ub-accent dark:text-blue-400 inline-flex items-center gap-1">
+                        Sistemes de Nanopartícules <i class="fas fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Research Card 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-xl mb-4 font-bold">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Principi de les 3R i Models In Vitro</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Desenvolupament i optimització de mètodes alternatius d'assaig in vitro per reduir, refinar i reemplaçar l'experimentació animal.
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-emerald-700 dark:text-emerald-400 inline-flex items-center gap-1">
+                        Alternatives 3R <i class="fas fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Research Card 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-amber-500 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400 flex items-center justify-center text-xl mb-4 font-bold">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Fotoprotecció i Dermofarmàcia</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Estudi de la fotoprotecció UVB, capacitats antioxidants i desenvolupament de nano-formulacions cosmèstiques i dermo-farmacèutiques.
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-amber-700 dark:text-amber-400 inline-flex items-center gap-1">
+                        Salut Cutània <i class="fas fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Research Card 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-400 flex items-center justify-center text-xl mb-4 font-bold">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Lliurament de Fàrmacs (Delivery Systems)</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Encapsulació de compostos actius en nanopartícules de PLGA/PCL i liposomes pH-sensibles per a l'alliberament direccionat de fàrmacs.
+                        </p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-indigo-700 dark:text-indigo-400 inline-flex items-center gap-1">
+                        Drug Delivery Systems <i class="fas fa-chevron-right text-[10px]"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publicacions" class="py-16 bg-slate-100 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-ub-accent dark:text-blue-400 font-bold text-xs uppercase tracking-wider">Producció Científica</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Publicacions Destacades</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Cerca i filtra les principals aportacions en revistes científiques indexades.</p>
+                </div>
+
+                <!-- Search Input Bar -->
+                <div class="w-full md:w-72 relative">
+                    <input type="text" id="pub-search" placeholder="Buscar publicació..." 
+                           class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-ub-accent text-sm">
+                    <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-sm"></i>
+                </div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-6" id="pub-filters">
+                <button data-filter="all" class="pub-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-ub-blue text-white shadow-sm transition">Totes</button>
+                <button data-filter="nanomedicina" class="pub-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shadow-sm transition">Nanomedicina</button>
+                <button data-filter="fotoproteccio" class="pub-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shadow-sm transition">Fotoprotecció</button>
+                <button data-filter="liposomes" class="pub-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 shadow-sm transition">Liposomes & PLGA</button>
+            </div>
+
+            <!-- Publications Container -->
+            <div class="space-y-4" id="publications-list">
+                
+                <!-- Pub 1 -->
+                <article class="pub-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition" data-tags="nanomedicina liposomes 2024">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold text-ub-accent dark:text-blue-400 bg-ub-light dark:bg-slate-800 px-3 py-1 rounded-md w-fit">2024 · Pharmaceutics</span>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400"><i class="fas fa-award text-amber-500 mr-1"></i> Article de Recerca</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white hover:text-ub-accent dark:hover:text-blue-400 transition">
+                        Co-Delivery of an Innovative Organoselenium Compound and Paclitaxel by pH-Responsive PCL Nanoparticles
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 font-mono">
+                        Mitjans, M. et al. — Pharmaceutics, Vol 16, 2024.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1"><i class="fas fa-tag text-slate-400"></i> pH-Responsive, PCL, Paclitaxel, Organoselenium</span>
+                        <a href="https://www.mdpi.com/journal/pharmaceutics" target="_blank" class="text-ub-accent dark:text-blue-400 font-semibold hover:underline inline-flex items-center gap-1">
+                            Llegir Journal <i class="fas fa-external-link-alt text-[10px]"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Pub 2 -->
+                <article class="pub-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition" data-tags="liposomes fotoproteccio 2023">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-md w-fit">2023 · Dermatology & Cosmetics</span>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400"><i class="fas fa-flask text-emerald-500 mr-1"></i> In Vitro Evaluation</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white hover:text-ub-accent dark:hover:text-blue-400 transition">
+                        Profiling and Evaluation of the Effect of Guarana-Loaded Liposomes on Different Skin Cell Lines
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 font-mono">
+                        Mitjans, M., Vinardell, M. P. et al. — 2023.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1"><i class="fas fa-tag text-slate-400"></i> Guarana, Liposomes, Skin Cells, Cytotoxicity</span>
+                        <span class="text-slate-400 font-semibold">Peer Reviewed</span>
+                    </div>
+                </article>
+
+                <!-- Pub 3 -->
+                <article class="pub-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition" data-tags="nanomedicina liposomes 2021">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-md w-fit">2021 · Nanomaterials & Drug Delivery</span>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400"><i class="fas fa-bullseye text-indigo-500 mr-1"></i> Targeted Delivery</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white hover:text-ub-accent dark:hover:text-blue-400 transition">
+                        Multifunctional PLGA nanoparticles combining transferrin-targetability and pH-stimuli sensitivity for doxorubicin intracellular delivery
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 font-mono">
+                        Mitjans, M. et al. — 2021.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1"><i class="fas fa-tag text-slate-400"></i> PLGA, Transferrin, Doxorubicin, Intracellular</span>
+                        <span class="text-slate-400 font-semibold">Indexed Paper</span>
+                    </div>
+                </article>
+
+                <!-- Pub 4 -->
+                <article class="pub-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition" data-tags="fotoproteccio 2021">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-md w-fit">2021 · Photobiology</span>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400"><i class="fas fa-sun text-amber-500 mr-1"></i> Photoprotection</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white hover:text-ub-accent dark:hover:text-blue-400 transition">
+                        UVB photoprotective capacity of hydrogels containing dihydromyricetin nanocapsules
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 font-mono">
+                        Mitjans, M. et al. — 2021.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1"><i class="fas fa-tag text-slate-400"></i> UVB, Dihydromyricetin, Hydrogels, Nanocapsules</span>
+                        <span class="text-slate-400 font-semibold">Indexed Paper</span>
+                    </div>
+                </article>
+
+                <!-- Pub 5 -->
+                <article class="pub-card bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition" data-tags="nanomedicina">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-md w-fit">Review Paper</span>
+                        <span class="text-xs font-medium text-slate-500 dark:text-slate-400"><i class="fas fa-shield-virus text-rose-500 mr-1"></i> Nanotoxicology</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white hover:text-ub-accent dark:hover:text-blue-400 transition">
+                        Antitumor Activities and Biocompatibility Profiles of Metal Oxide Nanoparticles
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 font-mono">
+                        Mitjans, M. & Vinardell, M. P.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+                        <span class="inline-flex items-center gap-1"><i class="fas fa-tag text-slate-400"></i> Metal Oxide, Toxicity, Biocompatibility, Oncology</span>
+                        <span class="text-slate-400 font-semibold">Review Paper</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Conferences & Teaching Section -->
+    <section id="congressos" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-ub-accent dark:text-blue-400 font-bold text-xs uppercase tracking-wider">Docència i Transferència</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Assistència a Congressos i Experiència Docent</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">Ponències, congressos científics i projectes d'innovació docent universitària.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Conference Card 1 -->
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white dark:from-slate-800/60 dark:to-slate-800/30 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/50 px-3 py-1 rounded-full">2024 · Conference Paper</span>
+                            <i class="fas fa-laptop-medical text-slate-400"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">
+                            Student preferences in laboratory learning modalities: face-to-face vs. remote instruction in physiology
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Avaluació comparativa de les preferències de l'alumnat universitari en modalitats pràctiques presencials enfront d'instrucció remota en fisiologia.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        <span><i class="fas fa-chalkboard-teacher text-ub-accent dark:text-blue-400 mr-1"></i> Innovació Docent UB</span>
+                        <span>Physiology Education</span>
+                    </div>
+                </div>
+
+                <!-- Conference Card 2 -->
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white dark:from-slate-800/60 dark:to-slate-800/30 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/50 px-3 py-1 rounded-full">2023 · Conference Paper</span>
+                            <i class="fas fa-puzzle-piece text-slate-400"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">
+                            Active learning of skeletal anatomy with the puzzle technique in Physiology
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Implementació de metodologies actives mitjançant la tècnica del trencaclosques (puzzle technique) per a l'aprenentatge cooperatiu.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        <span><i class="fas fa-users text-ub-accent dark:text-blue-400 mr-1"></i> Aprenentatge Actiu</span>
+                        <span>Anatomia & Fisiologia</span>
+                    </div>
+                </div>
+
+                <!-- Conference Card 3 -->
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white dark:from-slate-800/60 dark:to-slate-800/30 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 px-3 py-1 rounded-full">Ethical Education</span>
+                            <i class="fas fa-balance-scale text-slate-400"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">
+                            Ethical issues in education: Introducing the 3Rs principle for animal experimentation in universities
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Sensibilització ètica i introducció del principi de les 3R (Reemplaçar, Reduir, Refinar) en la docència universitària de ciències de la salut.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        <span><i class="fas fa-leaf text-emerald-600 mr-1"></i> 3Rs Principle</span>
+                        <span>Bioètica Universitària</span>
+                    </div>
+                </div>
+
+                <!-- Conference Card 4 -->
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-50 to-white dark:from-slate-800/60 dark:to-slate-800/30 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-800 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 px-3 py-1 rounded-full">Digital Learning</span>
+                            <i class="fas fa-desktop text-slate-400"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">
+                            E-learning of anatomy: Virtual platforms as a surrogate for the in-person laboratory
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                            Anàlisi de l'eficàcia de les plataformes virtuals i entorns digitals com a eines complementàries i substitutives del laboratori presencial.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        <span><i class="fas fa-graduation-cap text-ub-accent dark:text-blue-400 mr-1"></i> E-learning UB</span>
+                        <span>Virtual Labs</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Links Section -->
+    <section id="contacte" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <div class="lg:col-span-6 space-y-4">
+                    <span class="text-blue-400 font-bold text-xs uppercase tracking-wider">Contacte i Afiliació</span>
+                    <h2 class="text-3xl font-extrabold text-white">Informació d'Atenció Acadèmica</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Per a consultes sobre projectes de recerca, col·laboracions científiques o tutories acadèmiques, pot adreçar-se al Departament de Bioquímica i Fisiologia.
+                    </p>
+
+                    <div class="space-y-3 pt-2 text-sm text-slate-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-blue-400"><i class="fas fa-university"></i></div>
+                            <span>Facultat de Farmàcia i Ciències de l'Alimentació · UB</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-blue-400"><i class="fas fa-map-marker-alt"></i></div>
+                            <span>Av. Joan XXIII, 27-31, 08028 Barcelona, Espanya</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-blue-400"><i class="fas fa-atom"></i></div>
+                            <span>Institut de Nanosciència i Nanotecnologia (IN²UB)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="p-8 rounded-2xl bg-slate-800 border border-slate-700 shadow-xl space-y-6">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fas fa-paper-plane text-blue-400"></i> Enllaços Acadèmics
+                        </h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <a href="https://www.ub.edu" target="_blank" class="p-3 rounded-xl bg-slate-700/50 hover:bg-slate-700 border border-slate-600 transition flex items-center justify-between text-xs font-semibold">
+                                <span><i class="fas fa-globe text-blue-400 mr-2"></i> Portal UB</span>
+                                <i class="fas fa-arrow-right text-[10px] text-slate-400"></i>
+                            </a>
+                            <a href="https://loop.frontiersin.org/people/1011319" target="_blank" class="p-3 rounded-xl bg-slate-700/50 hover:bg-slate-700 border border-slate-600 transition flex items-center justify-between text-xs font-semibold">
+                                <span><i class="fas fa-user-circle text-emerald-400 mr-2"></i> Frontiers Loop</span>
+                                <i class="fas fa-arrow-right text-[10px] text-slate-400"></i>
+                            </a>
+                            <a href="https://orcid.org" target="_blank" class="p-3 rounded-xl bg-slate-700/50 hover:bg-slate-700 border border-slate-600 transition flex items-center justify-between text-xs font-semibold">
+                                <span><i class="fab fa-orcid text-emerald-400 mr-2"></i> ORCID ID</span>
+                                <i class="fas fa-arrow-right text-[10px] text-slate-400"></i>
+                            </a>
+                            <a href="https://www.researchgate.net" target="_blank" class="p-3 rounded-xl bg-slate-700/50 hover:bg-slate-700 border border-slate-600 transition flex items-center justify-between text-xs font-semibold">
+                                <span><i class="fab fa-researchgate text-teal-400 mr-2"></i> ResearchGate</span>
+                                <i class="fas fa-arrow-right text-[10px] text-slate-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Pages Hosting Guide Section -->
+    <section id="guia-github" class="py-16 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-xl">
+                
+                <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+                    <div class="w-14 h-14 rounded-2xl bg-ub-blue text-white flex items-center justify-center text-2xl shadow-md border border-blue-400/20">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Guia de Configuració a GitHub Pages</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Pas a pas per utilitzar <code class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded font-mono text-rose-500">MMA_2025.jpg</code> i publicar la web en obert.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6 text-sm text-slate-700 dark:text-slate-300">
+                    
+                    <!-- Step 1 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-ub-light dark:bg-slate-800 text-ub-accent dark:text-blue-400 font-bold flex items-center justify-center shrink-0">1</div>
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base">Desar la imatge local MMA_2025.jpg</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400">
+                                Desa la imatge adjunta al projecte amb el nom exacte <code class="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-rose-600 dark:text-rose-400 font-mono">MMA_2025.jpg</code> al mateix directori arrel que <code class="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-rose-600 dark:text-rose-400 font-mono">index.html</code>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-ub-light dark:bg-slate-800 text-ub-accent dark:text-blue-400 font-bold flex items-center justify-center shrink-0">2</div>
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base">Estructura del repositori</h3>
+                            <div class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs overflow-x-auto">
+┌── index.html       (Fitxer principal HTML)
+├── MMA_2025.jpg     (Foto de perfil de la Dra. Mitjans)
+└── README.md        (Descripció opcional)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-ub-light dark:bg-slate-800 text-ub-accent dark:text-blue-400 font-bold flex items-center justify-center shrink-0">3</div>
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base">Activar GitHub Pages</h3>
+                            <ul class="list-disc pl-5 text-xs text-slate-600 dark:text-slate-400 space-y-1">
+                                <li>Crea un repositori públic a GitHub i puja els fitxers <code class="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-mono">index.html</code> i <code class="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-mono">MMA_2025.jpg</code>.</li>
+                                <li>Ves a <strong>Settings</strong> -> <strong>Pages</strong>.</li>
+                                <li>Sota <i>"Source"</i> tria <strong>Deploy from a branch</strong>, selecciona la branca <code class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded font-mono">main</code> i desa els canvis.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-slate-950 text-slate-400 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-ub-accent text-white flex items-center justify-center font-bold text-xs">UB</span>
+                <span>Universitat de Barcelona — Facultat de Farmàcia i Ciències de l'Alimentació</span>
+            </div>
+            <p>© Dra. Montserrat Mitjans Arnal · Pàgina de prova GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle Functionality
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+            function applyTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    if (themeIcon) themeIcon.className = 'fas fa-sun text-amber-400 text-lg';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-sun text-amber-400 text-lg';
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    if (themeIcon) themeIcon.className = 'fas fa-moon text-lg';
+                    if (themeIconMobile) themeIconMobile.className = 'fas fa-moon text-lg';
+                }
+            }
+
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let isDarkMode = localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark);
+            applyTheme(isDarkMode);
+
+            function toggleTheme() {
+                isDarkMode = !isDarkMode;
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                applyTheme(isDarkMode);
+            }
+
+            if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+            // Mobile Navigation Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Publications Search & Filter Functionality
+            const searchInput = document.getElementById('pub-search');
+            const filterBtns = document.querySelectorAll('.pub-filter-btn');
+            const pubCards = document.querySelectorAll('.pub-card');
+
+            let currentFilter = 'all';
+            let currentSearchTerm = '';
+
+            function updatePublications() {
+                pubCards.forEach(card => {
+                    const tags = card.getAttribute('data-tags') || '';
+                    const textContent = card.innerText.toLowerCase();
+
+                    const matchesFilter = (currentFilter === 'all') || tags.includes(currentFilter);
+                    const matchesSearch = textContent.includes(currentSearchTerm);
+
+                    if (matchesFilter && matchesSearch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    currentSearchTerm = e.target.value.toLowerCase().trim();
+                    updatePublications();
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-ub-blue', 'text-white');
+                        b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                    });
+
+                    btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+                    btn.classList.add('bg-ub-blue', 'text-white');
+
+                    currentFilter = btn.getAttribute('data-filter');
+                    updatePublications();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
